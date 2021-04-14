@@ -28,7 +28,7 @@ namespace TestGoogleNUnit
         }
     }
 
-    public class ÑheckRegistration : BaseTest
+    public class CheckRegistration : BaseTest
     {
         public Random randomLine = new Random();
         int lengthLine = 6;
@@ -52,9 +52,15 @@ namespace TestGoogleNUnit
                 .FindElement(By.XPath("//div[@class='lp-vertical-form__field']/input[@data-qaid='email']"));
             var passwordRegistration = driver
                 .FindElement(By.XPath("//div[@class='lp-vertical-form__field']/input[@data-qaid='password']"));
-            nameRegistration.SendKeys(RandomString());
-            emailRegistration.SendKeys($"{RandomString()}@gmail.com");
-            passwordRegistration.SendKeys(RandomString());
+
+            string name = RandomString();
+            nameRegistration.SendKeys(name);
+
+            string email = RandomString();
+            emailRegistration.SendKeys($"{email}@gmail.com");
+
+            string password = RandomString();
+            passwordRegistration.SendKeys(password);
 
             var buttonLogin = driver
                 .FindElement(By.XPath("//button[@data-qaid='submit']"));
@@ -63,7 +69,5 @@ namespace TestGoogleNUnit
             // Thread.Sleep(10 * 1000); 
             Thread.Sleep(10);
         }
-
-        public class 
     }
 }

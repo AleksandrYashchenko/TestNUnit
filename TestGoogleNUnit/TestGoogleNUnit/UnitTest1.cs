@@ -28,7 +28,7 @@ namespace TestGoogleNUnit
         }
     }
 
-    public class ÑheckRegistration : BaseTest
+    public class CheckRegistration : BaseTest
     {
         public Random randomLine = new Random();
         int lengthLine = 6;
@@ -63,7 +63,5 @@ namespace TestGoogleNUnit
             // Thread.Sleep(10 * 1000); 
             Thread.Sleep(10);
         }
-
-        public class 
     }
 }

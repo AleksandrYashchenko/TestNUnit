@@ -69,5 +69,10 @@ namespace TestGoogleNUnit
             // Thread.Sleep(10 * 1000); 
             Thread.Sleep(10);
         }
+
+        public class SearchTest 
+        {
+
+        }
     }
 }

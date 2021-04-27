@@ -34,7 +34,7 @@ namespace TestGoogleNUnit
         int lengthLine = 6;
         public string RandomString()
         {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            const string chars = "abcdefghijklmnopqrstuvwxyz0123456789";
             return new string(Enumerable.Repeat(chars, lengthLine)
                 .Select(s => s[randomLine.Next(s.Length)]).ToArray());
         }
@@ -46,7 +46,7 @@ namespace TestGoogleNUnit
                 .FindElement(By.XPath("//div[@class='ek-grid__item']/a[text()='зарегистрироваться']"));
             registrationButton.Click();
 
-            var nameRegistration = driver
+            var nameRegistration = driver                
                 .FindElement(By.XPath("//div[@class='lp-vertical-form__field']/input[@data-qaid='name']"));
             var emailRegistration = driver
                 .FindElement(By.XPath("//div[@class='lp-vertical-form__field']/input[@data-qaid='email']"));
@@ -66,13 +66,22 @@ namespace TestGoogleNUnit
                 .FindElement(By.XPath("//button[@data-qaid='submit']"));
             buttonLogin.Click();
 
-            // Thread.Sleep(10 * 1000); 
+            var transitionEmail = driver
+                .FindElement(By.XPath("//div[@class='b-swipe-tabs']/a[@data-qaid='credentials_settings_tab']"));
+            transitionEmail.Click();
+
+            //Thread.Sleep(10 * 1000); 
             Thread.Sleep(10);
+
+            var checkedEmail = driver
+                .FindElement(By.XPath("//div[@class='b-form-unit']/input")).GetAttribute("value");
+            Assert.AreEqual(email+"@gmail.com", checkedEmail, "Email doesn't match the one entered during registration");
         }
 
-        public class SearchTest 
+        public class SearchTest
         {
 
+            }
         }
     }
 }
